@@ -1,0 +1,110 @@
+<div class="banner-container">
+  <div class="banner" [ngClass]="{'hidden': !showBanner}">
+    <div class="banner-content">
+      <h1>Delicious Games</h1>
+      <a routerLink="menu">CHECK WISHLIST<i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Creates select box with categories -->
+<div class="formselecediv">
+  <div class="container" *ngIf="!showLoading">
+    <label class="labelc">Select category </label>
+    <button class="btn btn-success" id="toggleButton" (click)="toggleBanner()">{{ showBanner ? 'Hide Banner' :
+      'Show Banner' }}</button>
+    <select class="form-select" aria-label="Default select example" (change)="filterDataVal($event)">
+      <option *ngFor="let data of categoriesData" [value]="data.name">{{data.name}}</option>
+    </select>
+  </div>
+</div>
+
+<!-- Creates upper pagination -->
+<div class="pagination justify-content-center">
+  <pagination-controls class="my-pagination" (pageChange)="pageNo = $event"></pagination-controls>
+</div>
+
+<div *ngIf="showLoading">
+  <div class="container-fluid full-page">
+    <div class="w-100 h-100">
+      <div class="row justify-content-center h-100">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1"
+          *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]">
+          <div class="skeleton-card skeleton-card-custom w-100">
+            <div class="skeleton-card-content">
+              <div class="skeleton-card is-loading">
+                <div class="skeleton-image"></div>
+                <div class="skeleton-content">
+                  <div class="skeleton-h2"></div>
+                  <div class="skeleton-p"></div>
+                  <div class="skeleton-p" style="width: 60%;"></div> <!-- Adjust width for variety -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!showLoading">
+  <div class="container-fluid full-page">
+    <div class="w-100 h-100">
+      <div class="row justify-content-center h-100">
+        <div *ngFor="let data of filterData | paginate: { itemsPerPage: 24, currentPage: pageNo }"
+          class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-1">
+          <div class="card card-custom w-100">
+            <div class="card-content">
+              <a [href]="data.LINK" target="_blank" class="image-link">
+                <img class="card-img-top" [src]="data.COVERS" alt="Card image cap">
+                <div class="overlay">
+                  <img src="../../../assets/img/video.svg" alt="Cinema Clapper" class="clapper-icon">
+                </div>
+              </a>
+
+              <div class="card-title-strip">
+                <h6 class="card-title">{{data.GAME_NAME | titlecase}}</h6>
+              </div>
+              <p class="card-description">{{data.GAME_DESCRIPTION}} | {{data.type}}</p>
+              <p class="card-state" [ngClass]="{
+                  'in-progress': data.GAME_STATE === 'IN PROGRESS',
+                  'to-play': data.GAME_STATE === 'To play',
+                  'finished': data.GAME_STATE === 'Finished',
+                  'to-continue': data.GAME_STATE === 'To Continue',
+                  'abandoned': data.GAME_STATE === 'Abandoned',
+                  'default': !['IN PROGRESS', 'To play', 'Finished', 'To Continue', 'Abandoned'].includes(data.GAME_STATE)
+                }">{{data.GAME_STATE}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Creates downer pagination -->
+<div class="pagination justify-content-center">
+  <pagination-controls class="my-pagination" (pageChange)="pageNo = $event"></pagination-controls>
+</div>
+
+<router-outlet />

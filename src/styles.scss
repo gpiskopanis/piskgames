@@ -1,0 +1,29 @@
+$roboto-font-path: "roboto-fontface/fonts" !default;
+@import "roboto-fontface/css/roboto/sass/roboto-fontface";
+$material-icons-font-path: 'material-icons/iconfont/';
+@import 'material-icons/iconfont/material-icons.scss';
+
+/* Define font stacks */
+$font-stack-roboto: 'Roboto', Arial, Helvetica, sans-serif;
+$font-stack-roboto-condensed: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+$font-stack-lato: 'Lato', Arial, Helvetica, sans-serif;
+$primary-color: #333;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #35bcd4;
+  --secondary-color: #162328;
+}
+
+body {
+  height: 100vh;
+  font-family: $font-stack-roboto;
+  background-color: #d3d3d3;
+  color: $primary-color;
+}
+
+
