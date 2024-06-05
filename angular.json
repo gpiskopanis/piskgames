@@ -52,7 +52,8 @@
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            }
+            },
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
