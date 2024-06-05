@@ -27,7 +27,7 @@ jobs:
       if: success()
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PISKTOKEN }}
         publish_dir: dist/piskgames
         enable_jekyll: true
 
