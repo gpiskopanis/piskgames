@@ -1,7 +1,7 @@
 //-----banner--------------
 .banner {
   display: block;
-  background-image: url('../../../assets/img/bannering.jpg');
+  background-image: url('assets/img/bannering.jpg');
   background-position: center top;
   background-size: cover;
 
@@ -261,7 +261,7 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(158, 140, 113, 0.377);
   border-radius: 0px;
-  border: 1px solid rgba(255, 255, 255, 0.125);  
+  border: 1px solid rgba(255, 255, 255, 0.125);
   filter:
   drop-shadow(0 30px 10px rgba(0,0,0,0.125));
   display: flex;
@@ -269,7 +269,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden; 
+  overflow: hidden;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.685);
 }
 
@@ -281,7 +281,7 @@
 .image-link {
   display: block;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 //image
@@ -290,7 +290,7 @@
   height: auto;
   display: block;
   border-radius: 0px 0px 0px 0px;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .image-link:hover .card-img-top {
@@ -309,7 +309,7 @@
   align-items: top;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease; 
+  transition: opacity 0.3s ease;
   border-radius: 0px 0px 0px 0px;
 }
 
@@ -329,12 +329,12 @@
 //svg
 .clapper-icon {
   margin-top: -65px;
-  width: 150px; 
-  height: 150px; 
-  max-width: 100%; 
-  max-height: 100%; 
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  max-height: 100%;
   filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.411));
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .card-title-strip{
@@ -393,10 +393,10 @@
   display: flex;
   margin-top: 10px;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  height: 40px; 
-  
+  height: 40px;
+
 
 }
 
