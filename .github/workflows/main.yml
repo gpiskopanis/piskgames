@@ -6,16 +6,16 @@ on:
     - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Checkout Code
       uses: actions/checkout@v2
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
@@ -23,11 +23,12 @@ jobs:
     - name: Build
       run: npm run build:prod
 
-    - name: Deploy
+    - name: Deploy to Github Pages
       if: success()
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@releases/v2
       with:
-        github_token: ${{ secrets.PISKTOKEN }}
-        publish_dir: dist/piskgames
-        enable_jekyll: true
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: main
+        BRANCH: gh-pages
+        FOLDER:  dist/browser
 
