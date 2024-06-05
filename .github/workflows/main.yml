@@ -27,8 +27,7 @@ jobs:
       if: success()
       uses: JamesIves/github-pages-deploy-action@releases/v2
       with:
-        ACCESS_TOKEN: ${{ secrets.PISKTOKEN }}
-        BASE_BRANCH: main
+        TOKEN: ${{ secrets.PISKTOKEN }}
         BRANCH: gh-pages
         FOLDER:  dist/browser
 
