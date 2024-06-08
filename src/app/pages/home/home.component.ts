@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api_service.service';
+import { Subscription, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
+export class HomeComponent implements OnInit, OnDestroy {
+  loadingData = Array.from({ length: 40 }, (_, i) => i + 1); 
   showLoading = true;
   showBanner = true;
 
@@ -24,6 +26,9 @@ export class HomeComponent implements OnInit {
   resData: any[] = [];
   pageNo = 1;
 
+  private subscription: Subscription | undefined;
+  private destroy$: Subject<void> = new Subject<void>();
+
   constructor(private service: ApiService) {
     // Clear data before page launches
     this.clearData();
@@ -33,6 +38,11 @@ export class HomeComponent implements OnInit {
     this.getValues();
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next(); // Emit signal to complete any ongoing subscriptions
+    this.destroy$.complete(); // Complete the subject to release resources
+  }
+
   clearData() {
     this.filterData = [];
     this.resData = [];
@@ -40,18 +50,20 @@ export class HomeComponent implements OnInit {
   }
 
   getValues() {
-    this.showLoading = true; // Ensure loading state is set to true before fetching data
+    this.showLoading = true; 
     setTimeout(() => {  // Simulate delay for better user experience
-      this.service.getGoogleSheetValue().subscribe(
+      this.subscription = this.service.getGoogleSheetValue().pipe(
+        takeUntil(this.destroy$) // Unsubscribe when the component is destroyed
+      ).subscribe(
         (result) => {
           const dataWithoutFirstRow = result.data.slice(1);
           this.filterData = dataWithoutFirstRow;
           this.resData = dataWithoutFirstRow;
-          this.showLoading = false; // Update loading state after data is fetched
+          this.showLoading = false; 
         },
         (error) => {
           console.error('Error fetching data', error);
-          this.showLoading = false; // Ensure loading state is reset in case of an error
+          this.showLoading = false; 
         }
       );
     }, 2000); // Artificial delay to simulate loading
