@@ -63,12 +63,13 @@
                 <div class="overlay">
                   <img src="./assets/img/video.svg" alt="Cinema Clapper" class="clapper-icon">
                 </div>
+                <div class="year-overlay">{{ data.RELEASE_DATE }}</div>
               </a>
 
               <div class="card-title-strip">
                 <h6 class="card-title">{{ data.GAME_NAME | titlecase }}</h6>
               </div>
-              <p class="card-description">{{ data.GAME_DESCRIPTION }} | {{ data.type }}</p>
+              <p class="card-description">{{ data.GAME_DESCRIPTION }}</p>
               <p class="card-state" [ngClass]="{
                   'in-progress': data.GAME_STATE === 'IN PROGRESS',
                   'to-play': data.GAME_STATE === 'To play',
