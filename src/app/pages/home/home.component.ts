@@ -7,16 +7,9 @@ import { ApiService } from '../../services/api_service.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private service: ApiService) {  }
-
-  ngOnInit(): void {
-    //console.log('initialized home');
-    this.getValues();
-  }
-
-  loadingData = [1, 2, 3, 4, 5, 6];
+  loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
   showLoading = true;
-  showBanner = true; // Add this property to control the visibility of the banner
+  showBanner = true;
 
   categoriesData = [
     { id: 1, name: 'all' },
@@ -31,39 +24,49 @@ export class HomeComponent implements OnInit {
   resData: any[] = [];
   pageNo = 1;
 
-  getValues() {
-    this.service.getGoogleSheetValue().subscribe((result) => {
-      //console.log(result, 'result###');
-      const dataWithoutFirstRow = result.data.slice(1);
-      this.filterData = dataWithoutFirstRow;
-      this.resData = dataWithoutFirstRow;
-      //console.log(this.filterData, 'filterData###');
-      this.showLoading = false;
-    });
+  constructor(private service: ApiService) {
+    // Clear data before page launches
+    this.clearData();
   }
 
-  filterDataVal(data: any) {
-    let getFilterVal = data.target.value;
-    //console.log(getFilterVal, 'getFilterVal##');
+  ngOnInit(): void {
+    this.getValues();
+  }
+
+  clearData() {
+    this.filterData = [];
+    this.resData = [];
+    this.showLoading = true;
+  }
+
+  getValues() {
+    this.showLoading = true; // Ensure loading state is set to true before fetching data
+    setTimeout(() => {  // Simulate delay for better user experience
+      this.service.getGoogleSheetValue().subscribe(
+        (result) => {
+          const dataWithoutFirstRow = result.data.slice(1);
+          this.filterData = dataWithoutFirstRow;
+          this.resData = dataWithoutFirstRow;
+          this.showLoading = false; // Update loading state after data is fetched
+        },
+        (error) => {
+          console.error('Error fetching data', error);
+          this.showLoading = false; // Ensure loading state is reset in case of an error
+        }
+      );
+    }, 2000); // Artificial delay to simulate loading
+  }
+
+  filterDataVal(event: any) {
+    const getFilterVal = event.target.value;
     if (getFilterVal === 'all') {
       this.filterData = this.resData;
     } else {
-      this.filterData = [];
-      this.resData.filter((ele: any) => {
-        if (ele.GAME_STATE == getFilterVal) {
-          this.filterData.push(ele);
-        }
-      });
+      this.filterData = this.resData.filter((ele: any) => ele.GAME_STATE === getFilterVal);
     }
   }
 
-  // Function to hide the banner
   toggleBanner() {
-    this.showBanner = !this.showBanner; // Toggle the value of showBanner
+    this.showBanner = !this.showBanner;
   }
-
-
-
-
-
 }
