@@ -1,8 +1,8 @@
 {
   "routes": [
     "/",
-    "/about",
     "/contact",
+    "/games",
     "/icollab",
     "/icrepo",
     "/menu",

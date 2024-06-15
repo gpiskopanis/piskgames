@@ -16,7 +16,7 @@
   }
   //title and button container
   .banner-content {
-    top: 20%;
+    margin-top: 240px;
     left: 8%;
   }
   //title
@@ -32,12 +32,12 @@
   }
   //title and button container
   .banner-content {
-    top: 20%;
+    margin-top: 240px;
     left: 5%;
   }
   //title
   .banner-content h1 {
-    font-size: 60px;
+    font-size: 90px;
   }
 }
 
@@ -48,7 +48,7 @@
   }
   //title and button container
   .banner-content {
-    top: 20%;
+    margin-top: 140px;
     left: 5%;
   }
   //title
@@ -64,7 +64,7 @@
   }
   //title and button container
   .banner-content {
-    top: 20%;
+    margin-top: 140px;
     left: 5%;
   }
   //title
@@ -80,13 +80,16 @@
   }
   //title and button container
   .banner-content {
-    top: 15%;
+    margin-top: 30px;
     left: 5%;
     width: 250px;
   }
   //title
   .banner-content h1 {
     font-size: 50px;
+  }
+  .banner-content .home-description{
+    width: 250px;
   }
 
 }
@@ -98,7 +101,7 @@
 //title
 .banner-content h1 {
   color: rgba(255, 255, 255, 0.5);
-  margin-left: -10px;
+  margin-left: -2px;
   font-weight: light;
   line-height: 0.9;
   margin-bottom: 30px;
@@ -116,6 +119,37 @@
 .banner-content a:hover {
   background-color: rgba(255, 255, 255, 0.7);
   color: rgba(0, 0, 0, 0.7);
+}
+
+// .home-description{
+//   display: block;
+//   margin-top: 40px;
+//   color: #ffffff9a;
+//   font-family: 'Roboto Condensed';
+//   text-align: left;
+//   font-size: 12px;
+//   line-height: 150%;
+//   text-transform: uppercase;
+//   padding-left: 0px;
+//   padding-right: 25px;
+//   word-wrap: normal;
+//   width: 450px;
+// }
+
+.home-description{
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: light;
+  line-height: 1;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  font-size: 12px;
+  padding-top: 5px;
+  border-top-style: solid;
+  border-width: thin;
+  //text-transform: uppercase;
+  text-align: left;
+  width: 350px;
 }
 
 

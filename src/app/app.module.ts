@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './sharepage/navbar/navbar.component';
 import { FooterComponent } from './sharepage/footer/footer.component';
-import { AboutComponent } from './pages/about/about.component';
+import { GamesComponent } from './pages/games/games.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
@@ -39,7 +39,7 @@ import { EditGameComponent } from './dashboard_games/edit-game/edit-game.compone
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    AboutComponent,
+    GamesComponent,
     ContactComponent,
     HomeComponent,
     MenuComponent,

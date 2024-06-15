@@ -4,11 +4,11 @@ import { Subscription, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  selector: 'app-games',
+  templateUrl: './games.component.html',
+  styleUrl: './games.component.scss'
 })
-export class AboutComponent implements OnInit, OnDestroy {
+export class GamesComponent implements OnInit, OnDestroy {
   loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
   showLoading = true;
   showBanner = true;
@@ -51,7 +51,6 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   getValues() {
     this.showLoading = true; 
-    setTimeout(() => {  
       this.subscription = this.service.getGoogleSheetValue().pipe(
         takeUntil(this.destroy$) 
       ).subscribe(
@@ -66,7 +65,6 @@ export class AboutComponent implements OnInit, OnDestroy {
           this.showLoading = false; 
         }
       );
-    }, 1000); // Artificial delay to simulate loading
   }
 
   filterDataVal(event: any) {
