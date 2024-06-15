@@ -24,10 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "assets": [
-              "src/assets",
-            ],
-            "outputPath": "dist/",
+            "outputPath": "dist/piskgames",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -52,7 +49,7 @@
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            },
+            }
           },
           "configurations": {
             "production": {

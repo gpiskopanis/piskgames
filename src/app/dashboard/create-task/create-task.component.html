@@ -1,0 +1,43 @@
+<div class="overlay">
+	<div class="popup">
+		<h2>'Create a new Task</h2>
+		<a class="close" href="#" (click)="OnCloseForm()">&times;</a>
+		<div class="content">
+			<section class="container">
+                <form action="#" class="form" #taskForm="ngForm" (ngSubmit)="OnFormSubmitted(taskForm)">
+                  <div class="input-box">
+                    <label>URL*</label>
+                    <input type="text" required name="url" ngModel/>
+                  </div>
+                  <div class="input-box">
+                    <label>Description*</label>
+                    <textarea rows="8" name = "desc" required ngModel></textarea>
+                  </div>
+                  <div class="column">
+                  </div>
+                  <div class="input-box address">
+                    <label>Type</label>
+                    <div class="column">
+                      <div class="select-box">
+                        <select name="type" ngModel>
+                          <option hidden>Abandoned</option>
+                          <option value="Html5">Html5</option>
+                          <option value="Mp4">Mp4</option>
+                          <option value="Pdf">Pdf</option>
+                          <option value="Text">Text</option>
+                          <option value="Gif">Gif</option>
+                          <option value="Svg">Svg</option>
+                          <option value="Png">Png</option>
+                          <option value="Mp3">Mp3</option>
+                          <option value="Ogg">Ogg</option>
+                        </select>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <button type="submit">Create Item</button>
+                </form>
+              </section>
+		</div>
+	</div>
+</div>

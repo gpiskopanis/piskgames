@@ -64,6 +64,10 @@
                   <img src="./assets/img/video.svg" alt="Cinema Clapper" class="clapper-icon">
                 </div>
                 <div class="year-overlay">{{ data.RELEASE_DATE }}</div>
+                <div class="remarks-overlay" [ngClass]="{
+                  'PRIORITY': data.REMARKS === 'PRIORITY!',
+                  'default': !['PRIORITY'].includes(data.REMARKS)
+                }">{{ data.REMARKS }}</div>
               </a>
 
               <div class="card-title-strip">

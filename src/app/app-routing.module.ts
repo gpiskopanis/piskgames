@@ -10,11 +10,11 @@ import { ScriptHackComponent } from './scripthack/scripthack.component';
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
   {path:'menu',component:MenuComponent},
   {path:'icrepo',component:IcrepoComponent},
   {path:'icollab',component:IcollabComponent},
   {path:'about',component:AboutComponent},
+  {path:'',component:HomeComponent},
   {path:'contact',component:ContactComponent},
   {path:'scripthack',component:ScriptHackComponent},
 

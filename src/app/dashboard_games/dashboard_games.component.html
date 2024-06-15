@@ -1,0 +1,48 @@
+<app-create-game 
+    *ngIf="showCreateGameForm" 
+    (CloseForm)="closeCreateGameForm()"
+    (EmitGameData)="createGame($event)">
+</app-create-game>
+
+<app-edit-game 
+    *ngIf="showEditGameForm && selectedGame" 
+    [game]="selectedGame"
+    (closeForm)="closeEditGameForm()"
+    (updateGame)="updateGame($event)">
+</app-edit-game>
+
+<div class="dashboard-container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Games Dashboard</h2>
+        <div>
+            <button class="create-game-btn" (click)="openCreateGameForm()">Create Game</button>
+            <button class="create-game-btn" (click)="fetchAllGames()">Fetch Games</button>
+            <button class="create-game-btn" (click)="clearGames()">Clear Games</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div *ngIf="isLoading" class="loading-indicator">
+        Loading games...
+    </div>
+
+    <div class="dashboard-item-container" *ngIf="!isLoading">
+        <div class="game-item" *ngFor="let game of allGames">
+            <div class="game-title">
+                <h3>{{game.title}}</h3>
+            </div>
+            <p><b>Description: </b>{{game.description}}</p>
+            <p><b>State: </b>{{game.state}}</p>
+            <p><b>Release Date: </b>{{game.releasedate}}</p>
+            <div class="game-action-icons">
+                <button class="game-action-btn" title="Edit" (click)="editGame(game)">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+                <button class="game-action-btn" title="Delete" (click)="deleteGame(game.id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>            
+            </div>
+        </div>
+    </div>
+</div>

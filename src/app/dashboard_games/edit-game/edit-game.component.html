@@ -1,0 +1,20 @@
+<div class="edit-game-form">
+  <h2>Edit Game</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="title">Title</label>
+    <input type="text" id="title" [(ngModel)]="game.title" name="title" required>
+
+    <label for="description">Description</label>
+    <textarea id="description" [(ngModel)]="game.description" name="description" required></textarea>
+
+    <label for="state">State</label>
+    <input type="text" id="state" [(ngModel)]="game.state" name="state" required>
+
+    <label for="releasedate">Release Date</label>
+    <input type="text" id="releasedate" [(ngModel)]="game.releasedate" name="releasedate" required>
+
+    <button type="submit">Save</button>
+    <button type="button" (click)="closeEditForm()">Cancel</button>
+  </form>
+</div>
+

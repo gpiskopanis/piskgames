@@ -1,0 +1,49 @@
+.edit-task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px; /* Adjust width as needed */
+    margin-left: auto; /* Move the form to the right side */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  
+    form {
+      width: 100%;
+    }
+  
+    label {
+      margin-bottom: 5px;
+    }
+  
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+  
+    button {
+      padding: 8px 15px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  

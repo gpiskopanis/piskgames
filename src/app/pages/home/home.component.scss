@@ -312,19 +312,6 @@
   border-radius: 0px 0px 0px 0px;
 }
 
-//YEAR
-.year-overlay {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  color: rgba(255, 255, 255, 0.63); 
-  font-family: 'Roboto Condensed';
-  font-size: 0.7rem; 
-  background: rgba(0, 0, 0, 0.5);
-  text-align: right;
-  padding-right: 5px;
-  width: 100%;
-}
 
 
 .image-link:hover .overlay {
@@ -440,6 +427,44 @@
   &.default {
     color: black;
   }
+}
+
+
+//REMARKS
+.remarks-overlay {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: rgba(255, 255, 255, 0.73); 
+  font-family: 'Roboto Condensed';
+  font-size: 0.7rem; 
+  text-align: left;
+  padding-left: 5px;
+  width: 100%;
+  z-index: 2;
+}
+
+.remarks-overlay {
+  &.PRIORITY {
+    background-color: rgba(255, 0, 0, 0.65);
+    z-index: 2;
+  }
+
+}
+
+//YEAR
+.year-overlay {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: rgba(255, 255, 255, 0.73); 
+  font-family: 'Roboto Condensed';
+  font-size: 0.7rem; 
+  background: rgba(0, 0, 0, 0.5);
+  text-align: right;
+  padding-right: 5px;
+  width: 100%;
+  z-index: 2;
 }
 
 //-----------------SKELETON----------------------

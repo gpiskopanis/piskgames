@@ -3,6 +3,9 @@ $roboto-font-path: "roboto-fontface/fonts" !default;
 $material-icons-font-path: 'material-icons/iconfont/';
 @import 'material-icons/iconfont/material-icons.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,400;1,600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 /* Define font stacks */
 $font-stack-roboto: 'Roboto', Arial, Helvetica, sans-serif;
 $font-stack-roboto-condensed: 'Roboto Condensed', Arial, Helvetica, sans-serif;

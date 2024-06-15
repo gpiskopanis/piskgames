@@ -24,6 +24,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { ScriptHackComponent } from './scripthack/scripthack.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard_gamesComponent } from './dashboard_games/dashboard_games.component';
+import { FormsModule } from '@angular/forms';
+import { CreateTaskComponent } from './dashboard/create-task/create-task.component';
+import { CreateGameComponent } from './dashboard_games/create-game/create-game.component';
+import { PlayerComponent } from './player/player.component';
+import { EditTaskComponent } from './dashboard/edit-task/edit-task.component';
+import { EditGameComponent } from './dashboard_games/edit-game/edit-game.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +46,14 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     IcrepoComponent,
     IcollabComponent,
     PaginationComponent,
-    ScriptHackComponent
+    DashboardComponent,
+    Dashboard_gamesComponent,
+    CreateTaskComponent,
+    CreateGameComponent,
+    ScriptHackComponent,
+    EditTaskComponent,
+    EditGameComponent,
+    PlayerComponent
   ],
   imports: [
     HttpClientModule,
@@ -48,6 +64,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     FlexLayoutModule,
+    FormsModule,
     HammerModule,
     AppRoutingModule,
     MatSelectModule,

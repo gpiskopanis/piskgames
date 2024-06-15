@@ -1,0 +1,52 @@
+<app-create-task 
+    *ngIf="showCreateTaskForm" 
+    (CloseForm)="closeCreateTaskForm()"
+    (EmitTaskData)="createTask($event)">
+</app-create-task>
+
+<app-edit-task 
+    *ngIf="showEditTaskForm && selectedTask" 
+    [task]="selectedTask"
+    (closeForm)="closeEditTaskForm()"
+    (updateTask)="updateTask($event)">
+</app-edit-task>
+
+
+<div class="dashboard-container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Dashboard for MA database</h2>
+        <div>
+            <button class="create-task-btn" (click)="openCreateTaskForm()">Create Item</button>
+            <button class="create-task-btn" (click)="fetchAllTasks()">Fetch Items</button>
+            <button class="create-task-btn" (click)="clearTasks()">Clear Items</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div *ngIf="isLoading" class="loading-indicator">
+        Loading tasks...
+    </div>
+
+    <div class="dashboard-item-container" *ngIf="!isLoading">
+        <div class="task-item" *ngFor="let task of allTasks">
+            <div class="task-title">
+                <p class="task-url">{{task.url}}</p>
+            </div>
+            <p class="task-desc"><b>Description: </b>{{task.desc}}</p>
+            <p class="task-type"><b>Type: </b>{{task.type}}</p>
+            <button class="display-MA" title="Edit" (click)="selectTask(task)">Display MA</button>
+            <div class="task-action-icons">
+                <button class="task-action-btn" title="Edit" (click)="editTask(task)">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+                <button class="task-action-btn" title="Delete" (click)="deleteTask(task.id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>            
+            </div>
+        </div>      
+    </div>
+    <app-player class="item-player" *ngIf="selectedTaskUrl" [url]="selectedTaskUrl"></app-player>
+</div>
+
+

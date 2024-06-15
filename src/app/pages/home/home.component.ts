@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  loadingData = Array.from({ length: 40 }, (_, i) => i + 1); 
+  loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
   showLoading = true;
   showBanner = true;
 
@@ -39,8 +39,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(); // Emit signal to complete any ongoing subscriptions
-    this.destroy$.complete(); // Complete the subject to release resources
+    this.destroy$.next(); 
+    this.destroy$.complete(); 
   }
 
   clearData() {
@@ -51,9 +51,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getValues() {
     this.showLoading = true; 
-    setTimeout(() => {  // Simulate delay for better user experience
+    setTimeout(() => {  
       this.subscription = this.service.getGoogleSheetValue().pipe(
-        takeUntil(this.destroy$) // Unsubscribe when the component is destroyed
+        takeUntil(this.destroy$) 
       ).subscribe(
         (result) => {
           const dataWithoutFirstRow = result.data.slice(1);
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.showLoading = false; 
         }
       );
-    }, 2000); // Artificial delay to simulate loading
+    }, 1000); // Artificial delay to simulate loading
   }
 
   filterDataVal(event: any) {
