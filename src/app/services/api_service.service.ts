@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
+const headers = new HttpHeaders({
+  'Cache-Control': 'no-cache',
+  'Pragma': 'no-cache',
+  'Expires': '0'
+});
 
 @Injectable({
   providedIn: 'root'
