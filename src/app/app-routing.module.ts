@@ -7,9 +7,11 @@ import { IcrepoComponent } from './pages/icrepo/icrepo.component';
 import { IcollabComponent } from './pages/icollab/icollab.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { ScriptHackComponent } from './scripthack/scripthack.component';
+import { ApiService } from './services/api_service.service';
 
 
 const routes: Routes = [
+  {path:'Api',component:ApiService},
   {path:'menu',component:MenuComponent},
   {path:'icrepo',component:IcrepoComponent},
   {path:'icollab',component:IcollabComponent},
