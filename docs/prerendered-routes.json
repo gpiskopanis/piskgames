@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/",
+    "/about",
+    "/contact",
+    "/icollab",
+    "/icrepo",
+    "/menu",
+    "/scripthack"
+  ]
+}
