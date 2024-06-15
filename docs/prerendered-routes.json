@@ -2,7 +2,6 @@
   "routes": [
     "/",
     "/about",
-    "/Api",
     "/contact",
     "/icollab",
     "/icrepo",
