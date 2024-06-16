@@ -11,7 +11,6 @@
 
 @media screen and (min-width: 1800px) and (max-width: 6000px) {
   .banner {
-    margin-top: -150px;
     height: 900px;
   }
   //title and button container
@@ -32,7 +31,6 @@
 
 @media screen and (min-width: 1500px) and (max-width: 1800px) {
   .banner {
-    margin-top: -120px;
     height: 880px;
   }
   //title and button container
@@ -52,7 +50,6 @@
 
 @media screen and (min-width: 1200px) and (max-width: 1500px) {
   .banner {
-    margin-top: -40px;
     height: 800px;
   }
   //title and button container
@@ -72,7 +69,6 @@
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .banner {
-    margin-top: -40px;
     height: 800px;
   }
   //title and button container
@@ -92,8 +88,7 @@
 
 @media screen and (min-width: 100px) and (max-width: 800px) {
   .banner {
-    margin-top: 0px;
-    height: 700px;
+    height: 750px;
   }
   //title and button container
   .banner-content {

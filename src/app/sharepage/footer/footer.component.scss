@@ -1,5 +1,4 @@
-.footer
-{
+.footer {
     overflow: hidden;
     position: sticky;
     top: 100%;
@@ -7,45 +6,67 @@
     padding: 20px 10px;
     color: #c9c6c6;
 }
-h1
-{
+h1 {
     color: #adacac;
     font-size: 15px;
     font-weight: bold;
 }
-a
-{
+a {
     color: #797676;
-    text-decoration:none;
+    text-decoration: none;
     padding: 0px 10px;
     font-size: 14px;
     font-weight: bold;
 }
-a:hover
-{
+a:hover {
     color: var(--primary-color);
 }
-i
-{
+i {
     padding: 0px 10px;
 }
-p
-{
+p {
     font-size: 14px;
     font-weight: bold;
     color: #7a7979;
-    margin-top:-10px;
+    margin-top: -10px;
 }
-
-.col-lg-3{
+.col-lg-3 {
     display: block;
     margin: right;
-    margin-top:-2px;
+    margin-top: -2px;
     text-align: right;
 }
-.col-lg-4{
+.col-lg-4 {
     display: block;
     margin: auto;
     text-align: center;
-    margin-top:-2px;
+    margin-top: -2px;
+}
+
+.hidden-text {
+    display: none;
+}
+
+@media screen and (min-width: 100px) and (max-width: 1200px) {
+    .col-lg-2 {
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .col-lg-3 {
+        display: block;
+        margin: right;
+        margin-top: 0px;
+        text-align: center;
+    }
+    .footer a{
+        color: #7a7979;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: left;
+        margin: 0 -5px; 
+    }
+
+
 }
