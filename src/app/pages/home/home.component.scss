@@ -23,6 +23,11 @@
   .banner-content h1 {
     font-size: 90px;
   }
+  //home description
+  .banner-content .home-description{
+    width: 670px;
+  }
+
 }
 
 @media screen and (min-width: 1500px) and (max-width: 1800px) {
@@ -38,6 +43,10 @@
   //title
   .banner-content h1 {
     font-size: 90px;
+  }
+  //home description
+  .banner-content .home-description{
+    width: 670px;
   }
 }
 
@@ -55,6 +64,10 @@
   .banner-content h1 {
     font-size: 60px;
   }
+  //home description
+  .banner-content .home-description{
+    width: 590px;
+  }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
@@ -70,6 +83,10 @@
   //title
   .banner-content h1 {
     font-size: 50px;
+  }
+  //home description
+  .banner-content .home-description{
+    width: 450px;
   }
 }
 
@@ -120,21 +137,6 @@
   background-color: rgba(255, 255, 255, 0.7);
   color: rgba(0, 0, 0, 0.7);
 }
-
-// .home-description{
-//   display: block;
-//   margin-top: 40px;
-//   color: #ffffff9a;
-//   font-family: 'Roboto Condensed';
-//   text-align: left;
-//   font-size: 12px;
-//   line-height: 150%;
-//   text-transform: uppercase;
-//   padding-left: 0px;
-//   padding-right: 25px;
-//   word-wrap: normal;
-//   width: 450px;
-// }
 
 .home-description{
   color: rgba(255, 255, 255, 0.3);

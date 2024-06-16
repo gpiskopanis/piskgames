@@ -12,6 +12,7 @@ export class GamesComponent implements OnInit, OnDestroy {
   loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
   showLoading = true;
   showBanner = true;
+  
 
   categoriesData = [
     { id: 1, name: 'all' },

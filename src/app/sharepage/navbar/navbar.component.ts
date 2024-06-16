@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +9,16 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   isCollapsed = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isCollapsed = true;
+      }
+    });
+   }
 
   ngOnInit(): void {
+  
   }
 
   toggleNavbar() {

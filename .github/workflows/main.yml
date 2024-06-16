@@ -29,5 +29,5 @@ jobs:
       with:
         TOKEN: ${{ secrets.PISKTOKEN }}
         BRANCH: gh-pages
-        FOLDER:  dist/browser
+        FOLDER:  docs/browser
 
