@@ -6,13 +6,12 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
-  styleUrl: './games.component.scss'
+  styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit, OnDestroy {
   loadingData = Array.from({ length: 40 }, (_, i) => i + 1); // Creating an array with 40 elements for skeleton loader
   showLoading = true;
   showBanner = true;
-  
 
   categoriesData = [
     { id: 1, name: 'all' },
@@ -32,16 +31,18 @@ export class GamesComponent implements OnInit, OnDestroy {
 
   constructor(private service: ApiService) {
     // Clear data before page launches
+    console.log("Cleared data before page launches");
     this.clearData();
   }
 
   ngOnInit(): void {
     this.getValues();
+    console.log('Got Values');
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(); 
-    this.destroy$.complete(); 
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   clearData() {
@@ -51,21 +52,21 @@ export class GamesComponent implements OnInit, OnDestroy {
   }
 
   getValues() {
-    this.showLoading = true; 
-      this.subscription = this.service.getGoogleSheetValue().pipe(
-        takeUntil(this.destroy$) 
-      ).subscribe(
-        (result) => {
-          const dataWithoutFirstRow = result.data.slice(1);
-          this.filterData = dataWithoutFirstRow;
-          this.resData = dataWithoutFirstRow;
-          this.showLoading = false; 
-        },
-        (error) => {
-          console.error('Error fetching data', error);
-          this.showLoading = false; 
-        }
-      );
+    this.showLoading = true;
+    this.subscription = this.service.getGoogleSheetValue().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(
+      (result) => {
+        const dataWithoutFirstRow = result.data.slice(1);
+        this.filterData = dataWithoutFirstRow;
+        this.resData = dataWithoutFirstRow;
+        this.showLoading = false;
+      },
+      (error) => {
+        console.error('Error fetching data', error);
+        this.showLoading = false;
+      }
+    );
   }
 
   filterDataVal(event: any) {
@@ -75,10 +76,16 @@ export class GamesComponent implements OnInit, OnDestroy {
     } else {
       this.filterData = this.resData.filter((ele: any) => ele.GAME_STATE === getFilterVal);
     }
+    // Reset page number to 1
+    this.pageNo = 1;
   }
 
   toggleBanner() {
     this.showBanner = !this.showBanner;
   }
-}
 
+  onPageChange(newPage: number) {
+    this.pageNo = newPage;
+    // Handle data loading for the new page here if needed
+  }
+}

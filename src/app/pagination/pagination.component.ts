@@ -1,73 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api_service.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
-  styleUrl: './pagination.component.scss'
+  styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent {
+  @Input() currentPage: number = 1;
+  @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private service:ApiService) { }
+  pages: number[] = [1, 2, 3, 4, 5, 6];  // Adjust this based on your actual number of pages
 
-  ngOnInit(): void {
-    this.getValues();
+  changePage(page: number) {
+    this.currentPage = page;
+    this.pageChange.emit(this.currentPage);
   }
-
-  loadingData=[1,2,3,4,5,6];
-  showLoading=true;
-
-  categoriesData = [
-    { id: 1, name: 'all' },
-    { id: 2, name: 'To play' },
-    { id: 3, name: 'Finished' },
-    { id: 4, name: 'To Continue' },
-    { id: 5, name: 'Abandoned' },
-    { id: 6, name: 'IN PROGRESS' },
-  ];
-
-  filterData:any = [];
-  resData:any;
-  pageNo= 1;
-  
-
-  getValues()
-  {
-      this.service.getGoogleSheetValue().subscribe((result)=>{
-         // console.log(result,'result###');
-          result.data.shift();
-          this.filterData = result.data;
-          this.resData = result.data;
-         // console.log(this.filterData,'filterDAta###');
-          this.showLoading=false;
-
-          
-      });
-  }
-
-
-
-  filterDataVal(data:any)
-  {
-    let  getFilterVal = data.target.value;
-    //console.log(getFilterVal,'getFilterVal##');
-    
-    if(getFilterVal === 'all')
-    {
-        this.filterData = this.resData;
-    }else 
-    {
-      this.filterData = [];
-        this.resData.filter((ele:any)=>{
-
-          if(ele.GAME_STATE == getFilterVal)
-          {
-                this.filterData.push(ele);
-          }
-
-        });
-    }
-}
-
-
 }

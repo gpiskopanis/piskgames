@@ -16,6 +16,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   googleSheetUrl = 'https://script.google.com/macros/s/AKfycbyQIbtZQ4qRdcLn3LLWs4nTGpM7flYtE7X6lnorHao8XADIjHukARDt22qTOuNQ9MTa/exec';
   getGoogleSheetValue(): Observable<any> {
+    console.log('fetching data');
     return this.http.get(this.googleSheetUrl);
   }
 }
